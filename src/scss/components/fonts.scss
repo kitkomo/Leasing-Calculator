@@ -1,0 +1,51 @@
+@font-face {
+	font-family: 'Nekst';
+	src: 
+		local('Nekst'),
+		url(fonts/Nekst-Regular.woff2) format('woff2'),
+		url(fonts/Nekst-Regular.woff) format('woff'),
+		url(fonts/Nekst-Regular.ttf) format('ttf'),
+		url(fonts/Nekst-Regular.eot) format('eot');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nekst';
+	src: 
+		local('Nekst'),
+		url(fonts/Nekst-Bold.woff2) format('woff2'),
+		url(fonts/Nekst-Bold.woff) format('woff'),
+		url(fonts/Nekst-Bold.ttf) format('ttf'),
+		url(fonts/Nekst-Bold.eot) format('eot');
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: 
+		local('Golroy'),
+		url(fonts/Gilroy-Regular.woff2) format('woff2'),
+		url(fonts/Gilroy-Regular.woff) format('woff'),
+		url(fonts/Gilroy-Regular.ttf) format('ttf'),
+		url(fonts/Gilroy-Regular.eot) format('eot');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: 
+		local('Golroy'),
+		url(fonts/Gilroy-Black.woff2) format('woff2'),
+		url(fonts/Gilroy-Black.woff) format('woff'),
+		url(fonts/Gilroy-Black.ttf) format('ttf'),
+		url(fonts/Gilroy-Black.eot) format('eot');
+	font-weight: 900;
+	font-display: swap;
+	font-style: normal;
+}
