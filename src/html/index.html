@@ -14,6 +14,57 @@
 	<link rel="stylesheet" href="style.min.css">
 </head>
 <body>
-	
+	<div class="wrapper">
+		<h1 class="title">Рассчитайте стоимость автомобиля в лизинг</h1>
+
+		<form action="" method="post" class="form" id="form">
+
+			<div class="form__field-wrapper">
+				<label for="auto-price-num" class="subtitle">Стоимость автомобиля</label>
+				<div class="form__input-wrapper">
+					<input type="text" value="3300000" id="auto-price-num" class="form__input">
+					<div class="form__measure-unit">
+						<span>&#8381;</span>
+					</div>
+					<input type="range" min="1500000" max="10000000" value="3300000" id="auto-price-range" class="form__range">
+				</div>
+			</div>
+
+			<div class="form__field-wrapper">
+				<label for="initial-payment-num" class="subtitle">Первоначальный взнос</label>
+				<div class="form__input-wrapper">
+					<input type="text" value="420000" id="initial-payment-num" class="form__input">
+					<div class="form__measure-unit">
+						<span>13%</span>
+					</div>
+					<input type="range" min="10" max="60" value="13" id="initial-payment-range" class="form__range">
+				</div>
+			</div>
+
+			<div class="form__field-wrapper">
+				<label for="period-num" class="subtitle">Срок лизинга</label>
+				<div class="form__input-wrapper">
+					<input type="text" value="60" id="period-num" class="form__input">
+					<div class="form__measure-unit">
+						<span>мес.</span>
+					</div>
+					<input type="range" min="6" max="120" value="60" id="period-range" class="form__range">
+				</div>
+			</div>
+
+			<div class="form__field-calculated">
+				<p class="subtitle">Сумма договора лизинга</p>
+				<p class="form__calculated-value" id="total">4 467 313 &#8381;</p>
+			</div>
+
+			<div class="form__field-calculated">
+				<p class="subtitle">Ежемесячный платеж от</p>
+				<p class="form__calculated-value" id="monthly-payment">114 455 &#8381;</p>
+			</div>
+
+			<button type="submit" class="form__submit">Оставить заявку</button>
+
+		</form>
+	</div>
 </body>
 </html>
