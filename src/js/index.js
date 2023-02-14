@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-	customRangeInput()
 	validator()
+	customRangeInput()
 	calculator()
 })
 
@@ -11,6 +11,16 @@ function customRangeInput() {
 		e.style.setProperty('--max', e.max == '' ? '100' : e.max);
 		e.addEventListener('input', () => e.style.setProperty('--value', e.value));
 	}
+	
+	const auto = document.querySelector('#auto-price-num')
+	const period = document.querySelector('#period-num')
+	const inputs = [auto, period]
+
+	inputs.forEach(item => {
+		item.addEventListener('change', () => {
+			item.parentElement.lastElementChild.style.setProperty('--value', item.value)
+		})
+	})
 }
 
 function validator() {
@@ -115,8 +125,8 @@ function calculator() {
 		} else {
 			initialPaymentPercent.textContent = Math.floor((initialPaymentNum.value * 100) / autoPriceNum.value) + '%'
 		}
-		initialPaymentRange.value = initialPaymentPercent.value
-
+		initialPaymentRange.value = Number((initialPaymentPercent.textContent).slice(0, -1))
+		initialPaymentRange.style.setProperty('--value', initialPaymentRange.value)
 		totalValues()
 	}
 
@@ -131,7 +141,7 @@ function calculator() {
 		///
 		initialPaymentPercent.textContent = initialPaymentRange.value + '%'
 		initialPaymentNum.value = Math.floor((autoPriceNum.value * initialPaymentRange.value) / 100)
-
+	
 		totalValues()
 	}
 

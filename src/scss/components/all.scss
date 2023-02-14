@@ -85,17 +85,17 @@ $graphit: #333E48;
 		background-color: #FFF;
 	}
 
-	// &:hover ~ input[type=range].form__range::-webkit-slider-thumb {
-	// 	transform: scale(1.1);
-	// }
+	&:hover ~ input[type=range].form__range::-webkit-slider-thumb {
+		transform: scale(1.1);
+	}
 
-	// &:hover ~ input[type=range].form__range::-moz-range-thumb {
-	// 	transform: scale(1.1);
-	// }
+	&:hover ~ input[type=range].form__range::-moz-range-thumb {
+		transform: scale(1.1);
+	}
 
-	// &:hover ~ input[type=range].form__range::-ms-thumb {
-	// 	transform: scale(1.1);
-	// }
+	&:hover ~ input[type=range].form__range::-ms-thumb {
+		transform: scale(1.1);
+	}
 
 	&::-webkit-outer-spin-button,
 	&::-webkit-inner-spin-button {
