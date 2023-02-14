@@ -1,0 +1,82 @@
+@media (max-width: 1120px) {
+	.form {
+		grid-template: repeat(4, auto) / repeat(2, 1fr);
+	}
+
+	.form__field-wrapper:nth-child(1) {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 768px) {
+	.wrapper {
+		padding: 10px 36px;
+	}
+
+	.form {
+		grid-template: repeat(5, auto) / repeat(2, 1fr);
+	}
+
+	.form__field-wrapper:nth-child(2),
+	.form__field-wrapper:nth-child(3) {
+		grid-column: 1 / -1;
+	}
+
+	.form__calculated-value {
+		font-size: 35px;
+	}
+
+	.form__submit {
+		font-size: 25px;
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 530px) {
+	.wrapper {
+		padding: 10px 20px;
+	}
+
+	.title {
+		font-size: 34px;
+	}
+
+	.subtitle {
+		font-size: 14px;
+	}
+
+	.form {
+		grid-template: repeat(6, auto) / 1fr;
+		row-gap: 16px;
+	}
+
+	.form__subtitle {
+		padding-bottom: 8px;
+	}
+
+	.form__input {
+		font-size: 22px;
+		line-height: 20px;
+		color: $graphit;
+	}
+
+	.form__measure-unit {
+		font-size: 22px;
+		line-height: 20px;
+	}
+
+	.form__field-calculated {
+		padding-bottom: 13px;
+	}
+
+	.form__calculated-value {
+		font-size: 22px;
+		line-height: 20px;
+	}
+
+	.form__submit {
+		margin-top: 3px;
+		font-size: 22px;
+		line-height: 20px;
+	}
+}
