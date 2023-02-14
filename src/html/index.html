@@ -20,35 +20,35 @@
 		<form action="" method="post" class="form" id="form">
 
 			<div class="form__field-wrapper">
-				<label for="auto-price-num" class="subtitle">Стоимость автомобиля</label>
+				<label for="auto-price-num" class="form__subtitle subtitle">Стоимость автомобиля</label>
 				<div class="form__input-wrapper">
 					<input type="text" value="3300000" autocomplete="off" id="auto-price-num" class="form__input">
-					<div class="form__measure-unit">
+					<label for="auto-price-num" class="form__measure-unit">
 						<span>&#8381;</span>
-					</div>
-					<input type="range" min="1500000" max="10000000" value="3300000" id="auto-price-range" class="form__range">
+					</label>
+					<input type="range" min="1500000" max="10000000" value="3300000" id="auto-price-range" class="form__range slider-progress">
 				</div>
 			</div>
 
 			<div class="form__field-wrapper">
-				<label for="initial-payment-num" class="subtitle">Первоначальный взнос</label>
+				<label for="initial-payment-num" class="form__subtitle subtitle">Первоначальный взнос</label>
 				<div class="form__input-wrapper">
 					<input type="text" value="420000" autocomplete="off" id="initial-payment-num" class="form__input">
-					<div class="form__measure-unit form__measure-unit--bordered">
+					<label for="initial-payment-num" class="form__measure-unit form__measure-unit--bordered">
 						<span>13%</span>
-					</div>
-					<input type="range" min="10" max="60" value="13" id="initial-payment-range" class="form__range">
+					</label>
+					<input type="range" min="10" max="60" value="13" id="initial-payment-range" class="form__range slider-progress">
 				</div>
 			</div>
 
 			<div class="form__field-wrapper">
-				<label for="period-num" class="subtitle">Срок лизинга</label>
+				<label for="period-num" class="form__subtitle subtitle">Срок лизинга</label>
 				<div class="form__input-wrapper">
 					<input type="text" value="60" autocomplete="off" id="period-num" class="form__input">
-					<div class="form__measure-unit">
+					<label for="period-num" class="form__measure-unit">
 						<span>мес.</span>
-					</div>
-					<input type="range" min="6" max="120" value="60" id="period-range" class="form__range">
+					</label>
+					<input type="range" min="6" max="120" value="60" id="period-range" class="form__range slider-progress">
 				</div>
 			</div>
 
@@ -71,5 +71,6 @@
 
 		</form>
 	</main>
+	<script src="index.js"></script>
 </body>
 </html>

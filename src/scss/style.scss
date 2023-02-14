@@ -1,4 +1,5 @@
 @import 'components/fonts.scss';
+@import 'components/input-range-custom.scss';
 
 $light-grey: #F3F3F4;
 $grey: #575757;
@@ -47,16 +48,19 @@ $accent: #FF9514;
 	column-gap: 32px;
 }
 
+.form__subtitle {
+	padding-bottom: 24px;
+	cursor: pointer;
+}
+
 .form__field-wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
 }
 
 .form__input-wrapper {
 	position: relative;
 	display: flex;
-
 }
 
 .form__input {
@@ -81,6 +85,18 @@ $accent: #FF9514;
 	&:focus + .form__measure-unit {
 		background-color: #FFF;
 	}
+
+	&:hover ~ input[type=range].form__range::-webkit-slider-thumb {
+		transform: scale(1.1);
+	}
+
+	&:hover ~ input[type=range].form__range::-moz-range-thumb {
+		transform: scale(1.1);
+	}
+
+	&:hover ~ input[type=range].form__range::-ms-thumb {
+		transform: scale(1.1);
+	}
 }
 
 .form__range {
@@ -90,6 +106,18 @@ $accent: #FF9514;
 	width: calc(100% - 48px);
 	height: 1px;
 	cursor: pointer;
+	
+	&::-webkit-slider-thumb {
+		transition: transform 200ms ease-in-out;
+	}
+
+	&::-moz-range-thumb {
+		transition: transform 200ms ease-in-out;
+	}
+
+	&::-ms-thumb {
+		transition: transform 200ms ease-in-out;
+	}
 }
 
 .form__measure-unit {
