@@ -8,7 +8,7 @@ const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
 const size = require('gulp-size')
 const babel = require('gulp-babel')
-const uglify = require('gulp-uglify')
+const webpack = require('webpack-stream')
 
 //Compile JavaScript
 const scripts = () => {
@@ -23,7 +23,9 @@ const scripts = () => {
 		.pipe(size({
 			title: 'Before compression: '
 		}))
-		.pipe(uglify())
+		.pipe(webpack({
+			mode: app.isProd ? 'production' : 'development'
+		}))
 		.pipe(size({
 			title: 'After compression: '
 		}))

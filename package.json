@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-		"build": "gulp --prod"
+    "build": "gulp --prod"
   },
   "browserslist": [
     "last 3 versions"
@@ -46,6 +46,8 @@
     "gulp-webp": "^4.0.1",
     "gulp-webp-css": "^1.1.0",
     "gulp-webp-html": "^1.0.2",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "webpack": "^5.75.0",
+    "webpack-stream": "^7.0.0"
   }
 }
