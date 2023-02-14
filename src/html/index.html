@@ -22,7 +22,7 @@
 			<div class="form__field-wrapper">
 				<label for="auto-price-num" class="form__subtitle subtitle">Стоимость автомобиля</label>
 				<div class="form__input-wrapper">
-					<input type="text" value="3300000" autocomplete="off" id="auto-price-num" class="form__input">
+					<input type="text" value="3300000" autocomplete="off" id="auto-price-num" class="form__input has-mask">
 					<label for="auto-price-num" class="form__measure-unit">
 						<span>&#8381;</span>
 					</label>
@@ -33,9 +33,9 @@
 			<div class="form__field-wrapper">
 				<label for="initial-payment-num" class="form__subtitle subtitle">Первоначальный взнос</label>
 				<div class="form__input-wrapper">
-					<input type="text" value="420000" autocomplete="off" id="initial-payment-num" class="form__input">
+					<input type="text" value="420000" autocomplete="off" id="initial-payment-num" class="form__input has-mask">
 					<label for="initial-payment-num" class="form__measure-unit form__measure-unit--bordered">
-						<span>13%</span>
+						<span id="initial-payment-percent">13%</span>
 					</label>
 					<input type="range" min="10" max="60" value="13" id="initial-payment-range" class="form__range slider-progress">
 				</div>
