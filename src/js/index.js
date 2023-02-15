@@ -1,11 +1,13 @@
 import Inputmask from "inputmask";
+import { animation } from "./components/animation";
 
-document.addEventListener('DOMContentLoaded', () => {
+window.onload = () => {
+	animation()
   validator()
   customRangeInput()
   calculator()
 	sendForm()
-})
+}
 
 function validator() {
   const inputs = document.querySelectorAll('.form__input')
