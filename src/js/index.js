@@ -13,7 +13,7 @@ function validator() {
     item.addEventListener('input', (e) => {
       item.value = e.target.value.replace(/\D/g, '')
     })
-
+		item.value = formatValues(item.value)
   })
 }
 
@@ -34,6 +34,13 @@ function customRangeInput() {
       item.parentElement.lastElementChild.style.setProperty('--value', item.value)
     })
   })
+}
+
+function formatValues(value) {
+	return Inputmask.format(value, { alias: "numeric", groupSeparator: ' '})
+}
+function unformatValues(value) {
+	return Inputmask.unmask(value, { alias: "numeric", groupSeparator: ' '})
 }
 
 function calculator() {
@@ -64,13 +71,6 @@ function calculator() {
 		digitsOptional: false,
 		digits: '0',
 	})
-
-	function formatValues(value) {
-		return Inputmask.format(value, { alias: "numeric", groupSeparator: ' '})
-	}
-	function unformatValues(value) {
-		return Inputmask.unmask(value, { alias: "numeric", groupSeparator: ' '})
-	}
 
   //listening auto
   autoPriceNum.addEventListener('change', () => {
