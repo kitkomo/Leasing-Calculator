@@ -8,6 +8,32 @@
 	}
 }
 
+@media (min-width: 768px) {
+	.form__input {
+		&:hover ~ input[type=range].form__range::-webkit-slider-thumb {
+			transform: scale(1.1);
+		}
+	
+		&:hover ~ input[type=range].form__range::-moz-range-thumb {
+			transform: scale(1.1);
+		}
+	
+		&:hover ~ input[type=range].form__range::-ms-thumb {
+			transform: scale(1.1);
+		}
+	}
+
+	.form__submit {
+		&:hover {
+			background-color: #000;
+		}
+	
+		&:active {
+			background-color: $grey;
+		}
+	}
+}
+
 @media (max-width: 768px) {
 	.wrapper {
 		padding: 10px 36px;
@@ -29,6 +55,10 @@
 	.form__submit {
 		font-size: 25px;
 		grid-column: 1 / -1;
+	
+		&:active {
+			background-color: #000;
+		}
 	}
 }
 

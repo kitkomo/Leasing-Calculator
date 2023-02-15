@@ -84,24 +84,6 @@ $graphit: #333E48;
 	&:focus + .form__measure-unit {
 		background-color: #FFF;
 	}
-
-	&:hover ~ input[type=range].form__range::-webkit-slider-thumb {
-		transform: scale(1.1);
-	}
-
-	&:hover ~ input[type=range].form__range::-moz-range-thumb {
-		transform: scale(1.1);
-	}
-
-	&:hover ~ input[type=range].form__range::-ms-thumb {
-		transform: scale(1.1);
-	}
-
-	&::-webkit-outer-spin-button,
-	&::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
 }
 
 .form__range {
@@ -190,14 +172,6 @@ $graphit: #333E48;
 	line-height: 36px;
 	padding: 14px 16px 18px;
 	transition: background-color 140ms ease-in;
-
-	&:hover {
-		background-color: #000;
-	}
-
-	&:active {
-		background-color: $grey;
-	}
 
 	&--loading {
 		pointer-events: none;
