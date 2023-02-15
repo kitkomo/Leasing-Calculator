@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   validator()
   customRangeInput()
   calculator()
+	sendForm()
 })
 
 function validator() {
@@ -184,4 +185,25 @@ function calculator() {
   function calcInitialPayment(percents) {
     return Math.floor((autoPriceRange.value * percents) / 100)
   }
+}
+
+function sendForm() {
+	const form = document.querySelector('#form')
+
+	const total = document.querySelector('#total')
+  const payment = document.querySelector('#monthly-payment')
+
+	form.addEventListener('submit', (e) => {
+		e.preventDefault()
+		
+		const data = {
+			autoPrice: form.elements.autoPrice.value,
+			initialPayment: form.elements.initialPayment.value,
+			period: form.elements.period.value,
+			total: total.textContent.slice(0, -2),
+			payment: payment.textContent.slice(0, -2)
+		}
+
+		alert(JSON.stringify(data))
+	})
 }
