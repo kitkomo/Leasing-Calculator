@@ -195,15 +195,26 @@ function sendForm() {
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault()
-		
-		const data = {
-			autoPrice: form.elements.autoPrice.value,
-			initialPayment: form.elements.initialPayment.value,
-			period: form.elements.period.value,
-			total: total.textContent.slice(0, -2),
-			payment: payment.textContent.slice(0, -2)
-		}
 
-		alert(JSON.stringify(data))
+		const formBtn = form.elements.submitBtn
+
+		formBtn.classList.add('form__submit--loading')
+		formBtn.innerHTML = `<div class="form__submit-preloader"></div>`
+		
+		setTimeout(() => {
+			formBtn.classList.remove('form__submit--loading')
+			formBtn.innerHTML = `Оставить заявку`
+
+			const data = {
+				autoPrice: form.elements.autoPrice.value,
+				initialPayment: form.elements.initialPayment.value,
+				period: form.elements.period.value,
+				total: total.textContent.slice(0, -2),
+				payment: payment.textContent.slice(0, -2)
+			}
+	
+			alert(JSON.stringify(data))
+		}, 500)
+		
 	})
 }

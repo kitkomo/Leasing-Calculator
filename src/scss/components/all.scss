@@ -198,4 +198,30 @@ $graphit: #333E48;
 	&:active {
 		background-color: $grey;
 	}
+
+	&--loading {
+		pointer-events: none;
+	}
+}
+
+.form__submit-preloader {
+	width: 31px;
+	height: 31px;
+	border-radius: 50%;
+	border: 2px solid transparent;
+	border-top-color: #FFF;
+	border-right-color: #FFF;
+	border-left-color: #FFF;
+	margin:  0 auto;
+	animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+	from {
+		transform: rotate(0turn);
+	}
+	to {
+		transform: rotate(1turn);
+	}
 }
