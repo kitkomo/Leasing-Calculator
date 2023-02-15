@@ -49,5 +49,8 @@
     "sass": "^1.57.1",
     "webpack": "^5.75.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "inputmask": "^5.0.7"
   }
 }

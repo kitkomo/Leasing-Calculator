@@ -1,3 +1,5 @@
+import Inputmask from "inputmask";
+
 document.addEventListener('DOMContentLoaded', () => {
   validator()
   customRangeInput()
@@ -11,6 +13,7 @@ function validator() {
     item.addEventListener('input', (e) => {
       item.value = e.target.value.replace(/\D/g, '')
     })
+
   })
 }
 
@@ -53,27 +56,21 @@ function calculator() {
     minimumFractionDigits: 0,
   })
 
-  function calcMontlyPayment() {
-    return Math.floor(
-      (autoPriceNum.value - initialPaymentNum.value) * ((0.05 * Math.pow(1 + 0.05, periodNum.value)) / (Math.pow(1 + 0.05, periodNum.value) - 1)),
-    )
-  }
+	const inputmask = new Inputmask('currency', {
+		inputtype: "text",
+		allowMinus: false,
+		groupSeparator: ' ',
+		rightAlign: false,
+		digitsOptional: false,
+		digits: '0',
+	})
 
-  function calcTotalPayment() {
-    return Math.floor(periodNum.value * Number(payment.textContent) + Number(initialPaymentNum.value))
-  }
-
-  function calcPaymentPercent(percents = 100) {
-    return Math.floor((initialPaymentNum.value * percents) / autoPriceNum.value)
-  }
-
-  function calcInitialPayment(percents) {
-    return Math.floor((autoPriceNum.value * percents) / 100)
-  }
-
-  //memory variables
-  let autoPrice = autoPriceNum.value
-  let period = periodNum.value
+	function formatValues(value) {
+		return Inputmask.format(value, { alias: "numeric", groupSeparator: ' '})
+	}
+	function unformatValues(value) {
+		return Inputmask.unmask(value, { alias: "numeric", groupSeparator: ' '})
+	}
 
   //listening auto
   autoPriceNum.addEventListener('change', () => {
@@ -95,13 +92,13 @@ function calculator() {
 
   //listening initial payment
   initialPaymentNum.addEventListener('change', () => {
-    const preCalcPercents = calcPaymentPercent(100)
+    const preCalcPercents = calcPaymentPercent()
     if (preCalcPercents < 10 || preCalcPercents > 60) {
       let difference = preCalcPercents - 60
       if (difference >= (preCalcPercents - 60) / 2) {
-        initialPaymentNum.value = calcInitialPayment(60)
+        initialPaymentNum.value = formatValues(calcInitialPayment(60))
       } else {
-        initialPaymentNum.value = calcInitialPayment(10)
+        initialPaymentNum.value = formatValues(calcInitialPayment(10))
       }
     }
     assignValuesNum()
@@ -112,19 +109,21 @@ function calculator() {
 
   //Assigment funcs
   function assignValuesNum() {
-    autoPrice = autoPriceNum.value
-    autoPriceNum.value = autoPrice
-    autoPriceRange.value = autoPrice
+    const autoPrice = autoPriceNum.value
+		const autoPriceFormated = formatValues(autoPrice)
+    autoPriceNum.value = autoPriceFormated
+    autoPriceRange.value = unformatValues(autoPrice)
     ///
-    period = periodNum.value
+    const period = periodNum.value
     periodNum.value = period
     periodRange.value = period
     ///
     if (calcPaymentPercent() < 10 || calcPaymentPercent() > 60) {
-      initialPaymentNum.value = calcInitialPayment(13)
+      initialPaymentNum.value = formatValues(calcInitialPayment(13))
       initialPaymentPercent.textContent = calcPaymentPercent() + '%'
     } else {
       initialPaymentPercent.textContent = calcPaymentPercent() + '%'
+			initialPaymentNum.value = formatValues(initialPaymentNum.value)
     }
 
     initialPaymentRange.value = Number(initialPaymentPercent.textContent.slice(0, -1))
@@ -134,16 +133,17 @@ function calculator() {
   }
 
   function assignValuesRange() {
-    autoPrice = autoPriceRange.value
-    autoPriceNum.value = autoPrice
+    const autoPrice = autoPriceRange.value
+		const autoPriceFormated = formatValues(autoPrice)
+    autoPriceNum.value = autoPriceFormated
     autoPriceRange.value = autoPrice
     ///
-    period = periodRange.value
+    const period = periodRange.value
     periodNum.value = period
     periodRange.value = period
     ///
     initialPaymentPercent.textContent = initialPaymentRange.value + '%'
-    initialPaymentNum.value = Math.floor((autoPriceNum.value * initialPaymentRange.value) / 100)
+    initialPaymentNum.value = formatValues(Math.floor((autoPriceRange.value * initialPaymentRange.value) / 100))
 
     totalValues()
   }
@@ -165,5 +165,23 @@ function calculator() {
         input.value = min
       }
     }
+  }
+
+	function calcMontlyPayment() {
+    return Math.floor(
+      (autoPriceRange.value - unformatValues(initialPaymentNum.value)) * ((0.05 * Math.pow(1 + 0.05, periodNum.value)) / (Math.pow(1 + 0.05, periodNum.value) - 1)),
+    )
+  }
+
+  function calcTotalPayment() {
+    return Math.floor(periodNum.value * Number(payment.textContent) + Number(unformatValues(initialPaymentNum.value)))
+  }
+
+  function calcPaymentPercent(percents = 100) {
+    return Math.floor((unformatValues(initialPaymentNum.value) * percents) / autoPriceRange.value)
+  }
+
+  function calcInitialPayment(percents) {
+    return Math.floor((autoPriceRange.value * percents) / 100)
   }
 }
