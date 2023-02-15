@@ -2,6 +2,6 @@
 
 ## To start project locally perform:
 - git clone
-- prject uses npm -> use `npm i` to load necessary packages
+- project uses npm -> use `npm i` to load necessary packages
 - use `npm run start` to start development enviroment
 - use `npm run build` to bundle code for production
